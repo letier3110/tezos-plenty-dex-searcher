@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/tezos-plenty-dex-searcher/static/css/main.15e6f022.css",
-    "main.js": "/tezos-plenty-dex-searcher/static/js/main.b9edca6b.js",
+    "main.css": "/tezos-plenty-dex-searcher/static/css/main.324f79c1.css",
+    "main.js": "/tezos-plenty-dex-searcher/static/js/main.c617546c.js",
     "static/js/787.26ea2f58.chunk.js": "/tezos-plenty-dex-searcher/static/js/787.26ea2f58.chunk.js",
     "index.html": "/tezos-plenty-dex-searcher/index.html",
-    "main.15e6f022.css.map": "/tezos-plenty-dex-searcher/static/css/main.15e6f022.css.map",
-    "main.b9edca6b.js.map": "/tezos-plenty-dex-searcher/static/js/main.b9edca6b.js.map",
+    "main.324f79c1.css.map": "/tezos-plenty-dex-searcher/static/css/main.324f79c1.css.map",
+    "main.c617546c.js.map": "/tezos-plenty-dex-searcher/static/js/main.c617546c.js.map",
     "787.26ea2f58.chunk.js.map": "/tezos-plenty-dex-searcher/static/js/787.26ea2f58.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.15e6f022.css",
-    "static/js/main.b9edca6b.js"
+    "static/css/main.324f79c1.css",
+    "static/js/main.c617546c.js"
   ]
 }
