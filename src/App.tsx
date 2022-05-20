@@ -73,21 +73,6 @@ function App() {
       return;
     });
     return sections;
-    // sortedData.reduce(
-    //   (
-    //     acc: Record<
-    //       number,
-    //       Array<TzktOriginatedOperation & { date: number }>
-    //     >,
-    //     operation
-    //   ) => ({
-    //     ...acc,
-    //     [operation.date]: acc[operation.date]
-    //       ? [operation]
-    //       : [...acc[operation.date], operation],
-    //   }),
-    //   {}
-    // ),
   }, [sortedData]);
 
   return (
@@ -108,7 +93,6 @@ function App() {
                     {sectionData.map(({ id, originatedContract }) => {
                       return (
                         <div key={id}>
-                          {/* <div>{new Date(date).toLocaleString()}</div> */}
                           <div className="row">
                             {originatedContract.alias && (
                               <div className="ktAlias">
