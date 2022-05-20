@@ -32,20 +32,37 @@ interface TzktOriginatedOperation {
   type: string;
 }
 
+interface Tab {
+  name: string;
+  value: string;
+}
+
+const TABS = [
+  {
+    name: "Plenty",
+    value: "tz1NbDzUQCcV2kp3wxdVHVSZEDeq2h97mweW",
+  },
+  {
+    name: "Youves",
+    value: "tz1TkUbh7oW8AdAUkoqKpCsCLk9894KZfLBM",
+  },
+];
+
 function App() {
   const [data, setData] = React.useState<Array<TzktOriginatedOperation>>([]);
+  const [tab, setTab] = React.useState<Tab>(TABS[0]);
 
-  const loadOriginatedContracts = React.useCallback(() => {
+  const loadOriginatedContracts = React.useCallback((selectedTab: string) => {
     fetch(
-      "https://api.tzkt.io/v1/accounts/tz1NbDzUQCcV2kp3wxdVHVSZEDeq2h97mweW/operations?type=origination&limit=1000&sort=1"
+      `https://api.tzkt.io/v1/accounts/${selectedTab}/operations?type=origination&limit=1000&sort=1`
     )
       .then((res) => res.json())
       .then((json) => setData(json));
   }, []);
 
   React.useEffect(() => {
-    loadOriginatedContracts();
-  }, [loadOriginatedContracts]);
+    loadOriginatedContracts(tab.value);
+  }, [loadOriginatedContracts, tab.value]);
 
   const sortedData = React.useMemo(
     () =>
@@ -78,7 +95,23 @@ function App() {
   return (
     <div className="App">
       <main>
-        <h1>Plenty Dexes</h1>
+        <h1>Deployed {tab.name} Dexes</h1>
+        <select
+          onChange={(e) => {
+            const selectedTab = e.target.value as string;
+            const foundTab = TABS.find(
+              (tab) => tab.value === selectedTab
+            ) as Tab;
+            setTab(foundTab);
+            document.title = `${foundTab.name} dexes`;
+          }}
+        >
+          {TABS.map((tab) => (
+            <option key={tab.value} value={tab.value}>
+              {tab.name}
+            </option>
+          ))}
+        </select>
         <section>
           {data && data.length && data.length > 0
             ? Object.keys(dataSection).map((section) => {
@@ -86,7 +119,6 @@ function App() {
                 const dateStamp = new Date(Number(section)).toLocaleDateString(
                   "uk-UA"
                 );
-                console.log(section, dateStamp);
                 return (
                   <div key={section}>
                     <h2>Contracts from {dateStamp}</h2>
@@ -100,6 +132,14 @@ function App() {
                               </div>
                             )}
                             <div>{originatedContract.address}</div>
+                            <a
+                              target={"_blank"}
+                              rel="noopener noreferrer"
+                              href={`https://tzkt.io/${originatedContract.address}/operations/`}
+                              className="contractLink"
+                            >
+                              tzkt
+                            </a>
                           </div>
                         </div>
                       );
