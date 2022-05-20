@@ -108,7 +108,7 @@ function App() {
                   </div>
                 );
               })
-            : "Loading..."}
+            : "Loading...."}
         </section>
       </main>
     </div>
