@@ -1,41 +1,7 @@
 import React from "react";
 import "./App.css";
-
-interface TzktAlias {
-  address: string;
-  alias?: string;
-}
-
-interface TzktContract extends TzktAlias {
-  kind: string;
-  typeHash: number;
-}
-
-interface TzktOriginatedOperation {
-  allocationFee: number;
-  bakerFee: number;
-  block: string;
-  contractBalance: number;
-  counter: number;
-  gasLimit: number;
-  gasUsed: number;
-  hash: string;
-  id: number;
-  level: number;
-  originatedContract: TzktContract;
-  sender: TzktAlias;
-  status: string;
-  storageFee: number;
-  storageLimit: number;
-  storageUsed: number;
-  timestamp: string; //Date
-  type: string;
-}
-
-interface Tab {
-  name: string;
-  value: string;
-}
+import OriginatedContract from "./OriginatedContract";
+import { Tab, TzktOriginatedOperation } from "./types";
 
 const TABS = [
   {
@@ -122,26 +88,12 @@ function App() {
                 return (
                   <div key={section}>
                     <h2>Contracts from {dateStamp}</h2>
-                    {sectionData.map(({ id, originatedContract }) => {
+                    {sectionData.map((contract) => {
                       return (
-                        <div key={id}>
-                          <div className="row">
-                            {originatedContract.alias && (
-                              <div className="ktAlias">
-                                <strong>{originatedContract.alias}</strong>
-                              </div>
-                            )}
-                            <div>{originatedContract.address}</div>
-                            <a
-                              target={"_blank"}
-                              rel="noopener noreferrer"
-                              href={`https://tzkt.io/${originatedContract.address}/operations/`}
-                              className="contractLink"
-                            >
-                              tzkt
-                            </a>
-                          </div>
-                        </div>
+                        <OriginatedContract
+                          key={contract.id}
+                          originatedContract={contract}
+                        />
                       );
                     })}
                     <hr />
