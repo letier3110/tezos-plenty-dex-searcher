@@ -12,11 +12,15 @@ const TABS = [
     name: "Youves",
     value: "tz1TkUbh7oW8AdAUkoqKpCsCLk9894KZfLBM",
   },
+  {
+    name: "FlameDEX",
+    value: "tz1hpGLqt7g55NYtryP2wx1sPLV6CG6A6bZn",
+  },
 ];
 
 function App() {
   const [data, setData] = React.useState<Array<TzktOriginatedOperation>>([]);
-  const [tab, setTab] = React.useState<Tab>(TABS[0]);
+  const [tab, setTab] = React.useState<Tab>(TABS[2]);
 
   const loadOriginatedContracts = React.useCallback((selectedTab: string) => {
     fetch(
@@ -96,7 +100,6 @@ function App() {
                         />
                       );
                     })}
-                    <hr />
                   </div>
                 );
               })

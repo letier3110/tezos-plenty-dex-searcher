@@ -9,6 +9,35 @@
   padding: 8px 16px;
 }
 
+.item {
+  padding: 4px 0px;
+  background-color: #eee;
+  margin-bottom: 12px;
+  margin-right: 16px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.item:hover {
+  background-color: #e5e5e5;
+}
+
+.badge {
+  margin-right: 8px;
+  background-color: #fa5;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.tzkt {
+  background-color: #005377;
+  color: #fff;
+}
+
+.bcd {
+  background-color: #abda82;
+  color: #000;
+}
+
 .ktAlias {
   margin-right: 12px;
   text-shadow: 1px 1px 2px #005377, 0 0 25px #005377, 0 0 5px #005377;
@@ -16,10 +45,13 @@
 
 .bcdAlias {
   margin-right: 12px;
-  text-shadow: 1px 1px 2px rgb(171, 218, 130), 0 0 25px rgb(171, 218, 130),
-    0 0 5px rgb(171, 218, 130);
+  text-shadow: 1px 1px 2px #abda82, 0 0 25px #abda82, 0 0 5px #abda82;
 }
 
 .contractLink {
   margin-left: 16px;
+}
+
+.contractKind {
+  margin-right: 8px;
 }

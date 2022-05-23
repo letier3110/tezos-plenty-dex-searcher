@@ -28,7 +28,22 @@ const OriginatedContract: React.FC<OriginatedContractProps> = ({
   }, [loadBcdInfo, contract]);
 
   return (
-    <div>
+    <div className="item">
+      <div className="row">
+        {contract.alias && (
+          <div className="badge tzkt">
+            <strong>TZKT alias</strong>
+          </div>
+        )}
+        {data && data.alias && (
+          <div className="badge bcd">
+            <strong>BCD alias</strong>
+          </div>
+        )}
+        <div className="badge assetType">
+          {contract.kind === "asset" ? "Asset" : "Smart Contract"}
+        </div>
+      </div>
       <div className="row">
         {contract.alias && (
           <div className="ktAlias">
@@ -41,6 +56,8 @@ const OriginatedContract: React.FC<OriginatedContractProps> = ({
           </div>
         )}
         <div>{contract.address}</div>
+      </div>
+      <div className="row">
         <a
           target={"_blank"}
           rel="noopener noreferrer"
