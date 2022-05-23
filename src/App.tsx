@@ -20,7 +20,7 @@ const TABS = [
 
 function App() {
   const [data, setData] = React.useState<Array<TzktOriginatedOperation>>([]);
-  const [tab, setTab] = React.useState<Tab>(TABS[2]);
+  const [tab, setTab] = React.useState<Tab>(TABS[0]);
 
   const loadOriginatedContracts = React.useCallback((selectedTab: string) => {
     fetch(
