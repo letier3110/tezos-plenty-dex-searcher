@@ -18,13 +18,15 @@ const TABS = [
   },
 ];
 
+const size = 1000;
+
 function App() {
   const [data, setData] = React.useState<Array<TzktOriginatedOperation>>([]);
   const [tab, setTab] = React.useState<Tab>(TABS[0]);
 
   const loadOriginatedContracts = React.useCallback((selectedTab: string) => {
     fetch(
-      `https://api.tzkt.io/v1/accounts/${selectedTab}/operations?type=origination&limit=1000&sort=1`
+      `https://api.tzkt.io/v1/accounts/${selectedTab}/operations?type=origination&limit=${size}&sort=1`
     )
       .then((res) => res.json())
       .then((json) => setData(json));

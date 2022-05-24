@@ -9,6 +9,12 @@
   padding: 8px 16px;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 16px;
+}
+
 .item {
   padding: 4px 0px;
   background-color: #eee;
@@ -19,6 +25,14 @@
 
 .item:hover {
   background-color: #e5e5e5;
+}
+
+.unfoldedItem {
+  max-height: 5000px;
+}
+
+.foldedItem {
+  max-height: 44px;
 }
 
 .badge {
@@ -54,4 +68,17 @@
 
 .contractKind {
   margin-right: 8px;
+}
+
+.notDex {
+  background-color: #f55;
+}
+
+.possiblyDex {
+  background-color: #fa5;
+}
+
+.yesDex {
+  background-color: #abda82;
+  color: #000;
 }

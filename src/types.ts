@@ -51,3 +51,17 @@ export interface BcdOriginatedContract {
   timestamp: string;
   tx_count: 7;
 }
+
+export interface BcdNodeEdge {
+  name: string;
+  prim: string;
+  type: string;
+  value: string;
+}
+
+export interface BcdContractStorage {
+  children: Array<BcdNodeEdge>;
+  name: string;
+  prim: string;
+  type: string;
+}
